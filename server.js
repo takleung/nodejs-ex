@@ -1,23 +1,15 @@
-/*
-* An Hello World Restful JSON API built with NodeJS alone.
-* When a POST request is sent to this API, it responds with an "Hello World!" message.
-*/
+const express = require('express')
+var bodyParser = require('body-parser')
+const app = express()
+var jsonParser = bodyParser.json()
 
-const http = require('http');
+app.use(express.json())
 
-const server = http.createServer((req, res) => {
-  const method = req.method.toUpperCase();
-  res.setHeader('Content-Type', 'application/json');
-  res.writeHead(200, 'request is good');
-  if (method === 'POST') {
-    const response = JSON.stringify({ message: 'Hello BUPA!' });
-    res.end(response);
-  } else {
-    const response = JSON.stringify({ message: 'You need to send a POST request to get the appropriate response' });
-    res.end(response);
-  }
-});
+app.post('/', jsonParser, function (req, res) {
+  res.send('Welcome ' + req.body.name)
+})
 
-server.listen(8080, () => {
-  console.log('App started on port 8080');
-});
+const PORT = process.env.PORT || 8080
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`)
+})
