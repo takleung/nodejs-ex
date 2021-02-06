@@ -1,0 +1,21 @@
+new org.jbpm.process.workitem.rest.RESTWorkItemHandler(classLoader)
+
+demo-restapi_1.0.0-SNAPSHOT
+
+demo-restapi.restCall
+
+{
+    "sampleRequest" : {
+        "com.jbossdemocentral.demo_restapi.sampleRequest": {
+            "name" : "BUPA"
+        }
+    }
+}
+
+curl --request POST \
+  --url http://nodejs-ex-restapi-nodejs.apps.ray.ntnxhk1.local \
+  --header 'content-type: application/json' \
+  --data '{
+    "name": "BUPA",
+    "no": "body-parser"
+}'

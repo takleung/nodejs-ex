@@ -6,7 +6,8 @@ var jsonParser = bodyParser.json()
 app.use(express.json())
 
 app.post('/', jsonParser, function (req, res) {
-  res.send('Welcome ' + req.body.name)
+  // res.send('Welcome ' + req.body.name)
+  res.send('Welcome BUPA')
 })
 
 const PORT = process.env.PORT || 8080
